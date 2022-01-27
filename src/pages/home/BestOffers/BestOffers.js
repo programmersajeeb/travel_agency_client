@@ -7,7 +7,7 @@ import BestOffer from '../BestOffer/BestOffer';
 const BestOffers = () => {
   const [blogs, setBlogs] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://shielded-hollows-68484.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, []);

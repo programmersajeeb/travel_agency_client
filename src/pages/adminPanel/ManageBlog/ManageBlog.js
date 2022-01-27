@@ -8,13 +8,13 @@ const ManageBlog = () => {
   const [blogs, setBlogs] = useState([]);
     console.log(blogs);
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://shielded-hollows-68484.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setBlogs(data)) 
     }, []);
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/blogs/${id}`;
+        const url = `https://shielded-hollows-68484.herokuapp.com/blogs/${id}`;
         fetch(url, {method: 'DELETE'})
             .then(res => res.json())
             .then(data => {

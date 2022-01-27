@@ -6,13 +6,13 @@ const ManageService = () => {
   const [services, setServices] = useState([]);
     console.log(services);
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://shielded-hollows-68484.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setServices(data)) 
     }, []);
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/blogs/${id}`;
+        const url = `https://shielded-hollows-68484.herokuapp.com/blogs/${id}`;
         fetch(url, {method: 'DELETE'})
             .then(res => res.json())
             .then(data => {

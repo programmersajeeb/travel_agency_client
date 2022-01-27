@@ -12,10 +12,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { Link } from 'react-router-dom';
 import './Navigation.css';
+import useAuth from '../../../hooks/useAuth';
 
 
 
 const Navigation = () => {
+  const {user, logout} = useAuth();
   const theme = useTheme()
   const useStyle = makeStyles({
     navItem:{
@@ -92,14 +94,25 @@ const Navigation = () => {
             <MenuIcon />
           </IconButton>
           <Typography className={navLogo} variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Programmer Sajeeb
+            Travel Agency
           </Typography>
           <Box className={navItemContainer}>
                <NavLink className={navItem} to="/"> <Button color="inherit">Home</Button> </NavLink>
-               <NavLink className={navItem} to="/about"> <Button color="inherit">About</Button> </NavLink>
-               <NavLink className={navItem} to="/services"> <Button color="inherit">Services</Button> </NavLink>
-               <NavLink className={navItem} to="/addBlog"> <Button color="inherit">Add Blog</Button> </NavLink>
                <NavLink className={navItem} to="/adminPanel"> <Button color="inherit">Admin Panel</Button> </NavLink>
+               {
+            user?.email ?
+               
+               <Box sx={{display:'inline-block'}}>
+                 <NavLink className={navItem} to="/addBlog"> <Button color="inherit">Add Blog</Button> </NavLink>
+               <Button onClick={logout} color="inherit">Logout</Button>
+               </Box>
+               :
+               <Box sx={{display:'inline-block'}}>
+                 <NavLink className={navItem} to="/login"> <Button color="inherit">Login</Button> </NavLink>
+               </Box>
+               }
+
+
              </Box>
         </Toolbar>
       </AppBar>

@@ -8,7 +8,7 @@ const CreateBlog = () => {
     const onSubmit = data => {
         console.log(data);
         axios
-            .post('http://localhost:5000/newBlogs', data)
+            .post('https://shielded-hollows-68484.herokuapp.com/newBlogs', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfully');

@@ -12,7 +12,7 @@ const BlogPosts = () => {
   const [newBlogs, setNewBlogs] = useState([]);
   const size = 12;
   useEffect(() => {
-      fetch(`http://localhost:5000/newBlogs?page=${page}&&size=${size}`)
+      fetch(`https://shielded-hollows-68484.herokuapp.com/newBlogs?page=${page}&&size=${size}`)
           .then(res => res.json())
           .then(data => {
             setNewBlogs(data.newBlogs);

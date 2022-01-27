@@ -8,7 +8,7 @@ const SingleBlog = () => {
     const [blogDetails, setBlogDetails] = useState({});
     const {img, title, discription, country, date} = blogDetails;
     useEffect(() => {
-        fetch(`http://localhost:5000/newBlogs/${BlogId}`)
+        fetch(`https://shielded-hollows-68484.herokuapp.com/newBlogs/${BlogId}`)
             .then(res => res.json())
             .then(data => setBlogDetails(data));
     }, []);
