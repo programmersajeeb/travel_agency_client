@@ -29,7 +29,7 @@ const AdminPanel = () => {
                         </Grid>
                         <Grid item xs={8} lg={4}>
                             <Box>
-                                <Link to="/">
+                                <Link to="/addBlog">
                                     <Box sx={{display:'flex', justifyContent:'start', alignItems:'center'}}>
                                         <Box sx={{fontSize:'20px', color:'#b63327', marginRight:'10px'}}>
                                         <i class="fas fa-plane"></i>
@@ -43,7 +43,7 @@ const AdminPanel = () => {
                         </Grid>
                         <Grid item xs={8} lg={4}>
                             <Box>
-                                <Link to="/">
+                                <Link to="/createBlog">
                                     <Box sx={{display:'flex', justifyContent:'start', alignItems:'center'}}>
                                         <Box sx={{fontSize:'20px', color:'#b63327', marginRight:'10px'}}>
                                         <i class="fab fa-blogger-b"></i>
@@ -57,13 +57,27 @@ const AdminPanel = () => {
                         </Grid>
                         <Grid item xs={8} lg={4}>
                             <Box>
-                                <Link to="/">
+                                <Link to="/manageService">
                                     <Box sx={{display:'flex', justifyContent:'start', alignItems:'center'}}>
                                         <Box sx={{fontSize:'20px', color:'#b63327', marginRight:'10px'}}>
-                                        <i class="fas fa-home"></i>
+                                        <i class="fas fa-plane"></i>
                                         </Box>
                                     <Box>
-                                    <Typography variant="h1" component="h2" sx={{textTransform:'uppercase', fontSize:'18px', padding:'0', fontWeight:'700'}}> Home </Typography> 
+                                    <Typography variant="h1" component="h2" sx={{textTransform:'uppercase', fontSize:'18px', padding:'0', fontWeight:'700'}}> DELETE SERVICE </Typography> 
+                                    </Box>
+                                    </Box>
+                                </Link>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={8} lg={4}>
+                            <Box>
+                                <Link to="/manageBlog">
+                                    <Box sx={{display:'flex', justifyContent:'start', alignItems:'center'}}>
+                                        <Box sx={{fontSize:'20px', color:'#b63327', marginRight:'10px'}}>
+                                        <i class="fab fa-blogger-b"></i>
+                                        </Box>
+                                    <Box>
+                                    <Typography variant="h1" component="h2" sx={{textTransform:'uppercase', fontSize:'18px', padding:'0', fontWeight:'700'}}> DELETE BLOG </Typography> 
                                     </Box>
                                     </Box>
                                 </Link>
