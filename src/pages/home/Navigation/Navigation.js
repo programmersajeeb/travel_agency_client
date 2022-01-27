@@ -1,0 +1,121 @@
+import { AppBar, IconButton, Toolbar, Typography, useTheme } from '@mui/material';
+import { Box } from '@mui/system';
+import React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import Button from '@mui/material/Button';
+import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@mui/styles';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import { Link } from 'react-router-dom';
+import './Navigation.css';
+
+
+
+const Navigation = () => {
+  const theme = useTheme()
+  const useStyle = makeStyles({
+    navItem:{
+      color:"#FFFFFF",
+      textDecoration:"none",
+    },
+    navIcon:{
+      [theme.breakpoints.up('sm')]: {
+        display:"none !important",
+      }
+    },
+    navItemContainer:{
+      [theme.breakpoints.down('sm')]: {
+        display:"none",
+      }
+    },
+    navLogo:{
+      [theme.breakpoints.down('sm')]: {
+        textAlign:"right",
+      }
+    },
+    mobileNavItem:{
+      textDecoration:"none",
+      color:"#FFFFFF",
+
+    }
+  })
+  const {navItem, navIcon, navItemContainer, navLogo, mobileNavItem} = useStyle()
+
+  const [state, setState] = React.useState(false);
+
+  const list = (
+    <Box
+      role="presentation"
+    >
+      <List>
+          <ListItem button>
+            <ListItemText> <Link className={mobileNavItem} to='/'>Home</Link> </ListItemText>
+          </ListItem>
+          <Divider />
+          <ListItem button>
+            <ListItemText> <Link className={mobileNavItem} to='/about'>About</Link> </ListItemText>
+          </ListItem>
+          <Divider />
+          <ListItem button>
+            <ListItemText> <Link className={mobileNavItem} to='/services'>Services</Link> </ListItemText>
+          </ListItem>
+          <Divider />
+          <ListItem button>
+            <ListItemText> <Link className={mobileNavItem} to='/portfolio'>Portfolio</Link> </ListItemText>
+          </ListItem>
+          <Divider />
+          <ListItem button>
+            <ListItemText> <Link className={mobileNavItem} to='/contact'>Contact</Link> </ListItemText>
+          </ListItem>
+          <Divider />
+      </List>
+    </Box>
+  );
+  return (
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+      <AppBar sx={{backgroundColor:"rgba(16, 16, 16, 0.514)", boxShadow:"none"}} position="fixed">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            className={navIcon}
+            onClick={()=> setState(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography className={navLogo} variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Programmer Sajeeb
+          </Typography>
+          <Box className={navItemContainer}>
+               <NavLink className={navItem} to="/"> <Button color="inherit">Home</Button> </NavLink>
+               <NavLink className={navItem} to="/about"> <Button color="inherit">About</Button> </NavLink>
+               <NavLink className={navItem} to="/services"> <Button color="inherit">Services</Button> </NavLink>
+               <NavLink className={navItem} to="/addBlog"> <Button color="inherit">Add Blog</Button> </NavLink>
+               <NavLink className={navItem} to="/adminPanel"> <Button color="inherit">Admin Panel</Button> </NavLink>
+             </Box>
+        </Toolbar>
+      </AppBar>
+    </Box>
+    <div>
+        <React.Fragment>
+          <Drawer
+            open={state}
+            onClose={()=> setState(false)}
+          >
+            {list}
+          </Drawer>
+        </React.Fragment>
+    </div>
+    </>
+  );
+};
+
+export default Navigation;
