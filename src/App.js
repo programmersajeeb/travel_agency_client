@@ -12,6 +12,7 @@ import Login from "./pages/login/Login/Login";
 import PrivetRoute from "./pages/login/PrivetRoute/PrivetRoute";
 import Register from "./pages/login/Register/Register";
 import SingleBlog from "./pages/singlePages/SingleBlog/SingleBlog";
+import SingleService from "./pages/singlePages/SingleService/SingleService";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/createBlog" element={<CreateBlog />} />
       <Route path="/blogDetails/:BlogId" element={<SingleBlog />} />
+      <Route path="/serviceDetails/:BlogId" element={<SingleService />} />
       <Route path="/adminPanel" element={<AdminPanel />} />
       <Route path="/addBlog" element={<AddBlog />} />
       <Route path="/manageService" element={<ManageService />} />
