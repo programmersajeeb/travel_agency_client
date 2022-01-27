@@ -70,7 +70,7 @@ const Carousel = () => {
   );
 
   return (
-    <div className=" flex justify-center  md:w-5/5 items-center">
+    <div className=" flex justify-center  md:w-5/5 items-center" style={{marginTop:'64px'}}>
       <div className="relative w-full">
         <div className="carousel">
           {sliderControl(true)}

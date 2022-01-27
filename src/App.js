@@ -2,7 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddBlog from "./pages/adminPanel/AddBlog/AddBlog";
 import AdminPanel from "./pages/adminPanel/AdminPanel/AdminPanel";
 import CreateBlog from "./pages/adminPanel/CreateBlog/CreateBlog";
+import ManageBlog from "./pages/adminPanel/ManageBlog/ManageBlog";
 import ManageService from "./pages/adminPanel/ManageService/ManageService";
+import AvailableServices from "./pages/ExploreService/AvailableServices/AvailableServices";
 // import AdminPanel from "./pages/adminPanel/AdminPanel/AdminPanel";
 import Home from "./pages/home/Home/Home";
 import SingleBlog from "./pages/singlePages/SingleBlog/SingleBlog";
@@ -17,6 +19,8 @@ function App() {
       <Route path="/createBlog" element={<CreateBlog />} />
       <Route path="/blogDetails/:BlogId" element={<SingleBlog />} />
       <Route path="/manageService" element={<ManageService />} />
+      <Route path="/availableServices" element={<AvailableServices />} />
+      <Route path="/manageBlog" element={<ManageBlog />} />
     </Routes>
   </BrowserRouter>
   );

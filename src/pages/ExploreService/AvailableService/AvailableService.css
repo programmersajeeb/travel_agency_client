@@ -1,0 +1,4 @@
+.singelBlog:hover .bottomArea{
+  background-color: rgba(182, 51, 39, 0.9);
+  transition: 0.6s;
+}

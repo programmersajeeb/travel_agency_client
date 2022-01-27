@@ -1,10 +1,11 @@
-import { Button, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import BestOffer from '../BestOffer/BestOffer';
+import Carousel from '../../home/Carousel/Carousel';
+import Navigation from '../../home/Navigation/Navigation';
+import AvailableService from '../AvailableService/AvailableService';
 
-const BestOffers = () => {
+const AvailableServices = () => {
   const [blogs, setBlogs] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/blogs')
@@ -12,8 +13,10 @@ const BestOffers = () => {
             .then(data => setBlogs(data))
     }, []);
   return (
-    <Box sx={{padding:'50px 0'}}>
-      <Box>
+    <Box>
+      <Navigation />
+      <Carousel />
+      <Box sx={{padding:'50px 0'}}>
       <Typography variant="h1" component="h2" sx={{fontWeight:'700', fontSize:'30px', lineHeight:'30px', textTransform:'uppercase', textAlign:'center' }}> BEST OFFERS </Typography>
       <Typography variant="subtitle1" gutterBottom component="div" sx={{fontWeight:'700', letterSpacing:'2px', fontFamily:'12px', marginBottom:'40px', textTransform:'uppercase', fontStyle:'italic', color:'#b63327', textAlign:'center'}}> CHECK OUT OUR BEST PROMOTION TOURS </Typography>
       <Box >
@@ -21,21 +24,17 @@ const BestOffers = () => {
             <Grid container spacing={2}>
               
                 {
-                  blogs.slice(0, 8).map(blog=><BestOffer
+                  blogs.map(blog=><AvailableService
                   key={blog._id}
                   blog={blog}
-                  ></BestOffer>)
+                  ></AvailableService>)
                 }
               </Grid>
        </Box>
       </Box>
       </Box>
-      <Box sx={{textAlign:'center', marginTop:'50px'}}> <Link to="/availableServices" sx={{color:'#FFF'}}>
-      <Button sx={{color:'#000', fontSize:'14px', padding:'6px 12px', backgroundColor:'#b63327' }} size="large" variant="text">EXPLORE</Button>
-      </Link>
-      </Box>
     </Box>
   );
 };
 
-export default BestOffers;
+export default AvailableServices;
