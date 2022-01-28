@@ -103,7 +103,6 @@ const Navigation = () => {
             user?.email ?
                
                <Box sx={{display:'inline-block'}}>
-                 <NavLink className={navItem} to="/addBlog"> <Button color="inherit">Add Blog</Button> </NavLink>
                  <NavLink className={navItem} to="/adminPanel"> <Button color="inherit">Dasboard</Button> </NavLink>
                  {
                 admin &&
