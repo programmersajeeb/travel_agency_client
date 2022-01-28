@@ -3,6 +3,7 @@ import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import AddReview from '../../home/AddReview/AddReview';
 import Navigation from '../../home/Navigation/Navigation';
 
 const SingleBlog = () => {
@@ -30,13 +31,11 @@ const SingleBlog = () => {
             <Box>
             <Typography variant="body1" gutterBottom sx={{color:'#333333', lineHeight:'1.8', wordBreak:'break-word', fontSize:'13px', fontWeight:'400'}}> {discription} </Typography>
             </Box>
-            <Box>
-              {/* <Box>
-                social area
-              </Box> */}
-            </Box>
           </Box>
         </Box>
+      </Box>
+      <Box sx={{marginTop:'50px'}}>
+      <AddReview />
       </Box>
     </Box>
   );
