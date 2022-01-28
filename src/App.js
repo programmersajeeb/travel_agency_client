@@ -7,7 +7,6 @@ import AdminPanel from "./pages/adminPanel/AdminPanel/AdminPanel";
 import CreateBlog from "./pages/adminPanel/CreateBlog/CreateBlog";
 import ManageBlog from "./pages/adminPanel/ManageBlog/ManageBlog";
 import ManageService from "./pages/adminPanel/ManageService/ManageService";
-import ClientReviews from "./pages/ClientReviews/ClientReviews";
 import AvailableServices from "./pages/ExploreService/AvailableServices/AvailableServices";
 // import AdminPanel from "./pages/adminPanel/AdminPanel/AdminPanel";
 import Home from "./pages/home/Home/Home";
@@ -35,7 +34,6 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/menuBar" element={<ManuBar />} />
       <Route path="/makeAdmin" element={<MakeAdmin />} />
-      <Route path="/clientReview" element={<ClientReviews />} />
 
       {/* <Route path="/dashboard" element={ <PrivateRoute> <Dashboard /> </PrivateRoute> } /> */}
 

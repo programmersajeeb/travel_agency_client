@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import {useForm} from 'react-hook-form';
-import { Container } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import './AddReview.css'
+import ClientReview from '../../ClientReview/ClientReview';
 
 const AddReview = () => {
     const {register, handleSubmit, reset} = useForm();
+    const [clientReviews, setClientReviews] = useState([])
+    useEffect(() => {
+        fetch('https://shielded-hollows-68484.herokuapp.com/rating')
+            .then(res => res.json())
+            .then(data => setClientReviews(data))
+    }, []);
     const onSubmit = data => {
         console.log(data);
         axios
@@ -24,9 +31,22 @@ const AddReview = () => {
             <div>
             <div>
                 <h2 style={{fontSize:"35px"}}>Reviews as Client</h2>
-                <iframe width="100%" height="300px"
+                {/* <iframe width="100%" height="300px"
                     src="https://clever-babbage-676a41.netlify.app/clientReview"
-                    title="Our Client Review"></iframe>
+                    title="Our Client Review"></iframe> */}
+                    <Box sx={{width:'100%', height:'300px', overflow:'scroll'}}>
+                    <Box sx={{ flexGrow: 1  }}>
+            <Container>
+                <Grid container="container">
+                    {
+                        clientReviews.map(
+                          clientReview => <ClientReview key={clientReview._id} clientReview={clientReview}></ClientReview>
+                        )
+                    }
+                </Grid>
+            </Container>
+        </Box>
+                    </Box>
             </div>
             <div className="reviewForm" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
                 <h2>Review Form</h2>
