@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import './AddBlog.css';
 import {useForm} from "react-hook-form";
+import ManuBar from '../../../dashBoard/MenuBar/ManuBar';
 
 const AddBlog = () => {
   const {register, handleSubmit, reset} = useForm();
@@ -18,6 +19,7 @@ const AddBlog = () => {
     }
   return (
     <div>
+        <ManuBar />
             <div className="add-product-area">
                 <h2>Please add a service
                 </h2>

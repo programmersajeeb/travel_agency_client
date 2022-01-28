@@ -17,6 +17,7 @@ import useAuth from '../../../hooks/useAuth';
 
 
 const Navigation = () => {
+  const {admin} = useAuth();
   const {user, logout} = useAuth();
   const theme = useTheme()
   const useStyle = makeStyles({
@@ -103,7 +104,12 @@ const Navigation = () => {
                
                <Box sx={{display:'inline-block'}}>
                  <NavLink className={navItem} to="/addBlog"> <Button color="inherit">Add Blog</Button> </NavLink>
-                 <NavLink className={navItem} to="/adminPanel"> <Button color="inherit">Admin Panel</Button> </NavLink>
+                 <NavLink className={navItem} to="/adminPanel"> <Button color="inherit">Dasboard</Button> </NavLink>
+                 {
+                admin &&
+                 <NavLink className={navItem} to="/menuBar"> <Button color="inherit">Control Panel</Button> </NavLink>
+}
+
                <Button onClick={logout} color="inherit">Logout</Button>
                </Box>
                :

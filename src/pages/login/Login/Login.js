@@ -1,7 +1,9 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Navigation from '../../home/Navigation/Navigation';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({})
@@ -23,7 +25,10 @@ const Login = () => {
         e.preventDefault();
     }
   return (
-    <Container>
+      <Box>
+          <Navigation />
+          
+    <Container sx={{marginTop:'64px'}}>
             <Grid container="container" spacing={2}>
                 <Grid item="item" sx={{ mt: 8 }} xs={12} md={6}>
                     <Typography variant="body1" gutterBottom="gutterBottom">Login</Typography>
@@ -67,6 +72,7 @@ const Login = () => {
                 </Grid>
             </Grid>
         </Container>
+      </Box>
   );
 };
 

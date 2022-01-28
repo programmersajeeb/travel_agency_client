@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import AdminPanel from '../AdminPanel/AdminPanel';
 import './CreateBlog';
 
 const CreateBlog = () => {
@@ -18,6 +19,7 @@ const CreateBlog = () => {
     }
   return (
     <div>
+        <AdminPanel />
             <div className="add-product-area">
                 <h2>Please add a service
                 </h2>

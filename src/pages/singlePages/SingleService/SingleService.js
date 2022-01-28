@@ -1,7 +1,8 @@
-import { Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import OrderModal from '../../ExploreService/OrderModal/OrderModal';
 import Navigation from '../../home/Navigation/Navigation';
 
 const SingleService = () => {
@@ -13,7 +14,12 @@ const SingleService = () => {
             .then(res => res.json())
             .then(data => setServiceDetails(data));
     }, []);
+
+    const [openOrder, setOpenOrder] = useState(false);
+    const handleOrderOpen = () => setOpenOrder(true);
+    const handleOrderClose = () => setOpenOrder(false);
   return (
+    <>
     <Box>
       <Navigation />
       <Box>
@@ -26,7 +32,7 @@ const SingleService = () => {
         <Box sx={{width:'1200px', margin:'0 auto', marginTop:'50px'}}>
         <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={4} lg={4}>
+        <Grid item xs={3} lg={3}>
         <Typography variant="h1" component="h2" sx={{fontSize:'11px', fontStyle:'italic', fontWeight:'700', color:'#999', letterSpacing:'2px', textAlign:'center', textTransform:'uppercase'}}>
           Date
         </Typography>
@@ -34,7 +40,7 @@ const SingleService = () => {
           {date}
         </Typography>
         </Grid>
-        <Grid item xs={4} lg={4}>
+        <Grid item xs={3} lg={3}>
         <Typography variant="h1" component="h2" sx={{fontSize:'11px', fontStyle:'italic', fontWeight:'700', color:'#999', letterSpacing:'2px', textAlign:'center', textTransform:'uppercase'}}>
         DURATION
         </Typography>
@@ -42,13 +48,23 @@ const SingleService = () => {
           {days}
         </Typography>
         </Grid>
-        <Grid item xs={4} lg={4}>
+        <Grid item xs={3} lg={3}>
         <Typography variant="h1" component="h2" sx={{fontSize:'11px', fontStyle:'italic', fontWeight:'700', color:'#999', letterSpacing:'2px', textAlign:'center', textTransform:'uppercase'}}>
         PRICE
         </Typography>
         <Typography variant="h1" component="h2" sx={{fontSize:'20px', fontWeight:'700', color:'#000', textAlign:'center', textTransform:'uppercase'}}>
           {price}
         </Typography>
+        </Grid>
+
+
+
+        <Grid item xs={3} lg={3}>
+        <Typography variant="h1" component="h2" sx={{fontSize:'11px', fontStyle:'italic', fontWeight:'700', color:'#999', letterSpacing:'2px', textAlign:'center', textTransform:'uppercase'}}>
+        book button
+        </Typography>
+        
+        <Button onClick={handleOrderOpen} variant="outlined">Order Now</Button>
         </Grid>
         
       </Grid>
@@ -67,6 +83,14 @@ const SingleService = () => {
         </Box>
       </Box>
     </Box>
+
+    <OrderModal
+        product={serviceDetails}
+        openOrder={openOrder}
+        handleOrderClose={handleOrderClose}></OrderModal>
+
+
+    </>
   );
 };
 

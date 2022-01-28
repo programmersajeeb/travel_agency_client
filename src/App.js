@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import MakeAdmin from "./dashBoard/MakeAdmin/MakeAdmin";
+import ManuBar from "./dashBoard/MenuBar/ManuBar";
 import AddBlog from "./pages/adminPanel/AddBlog/AddBlog";
 import AdminPanel from "./pages/adminPanel/AdminPanel/AdminPanel";
 import CreateBlog from "./pages/adminPanel/CreateBlog/CreateBlog";
@@ -30,6 +32,8 @@ function App() {
       <Route path="/availableServices" element={<AvailableServices />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/menuBar" element={<ManuBar />} />
+      <Route path="/makeAdmin" element={<MakeAdmin />} />
 
       {/* <Route path="/dashboard" element={ <PrivateRoute> <Dashboard /> </PrivateRoute> } /> */}
 

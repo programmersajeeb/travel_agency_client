@@ -1,6 +1,7 @@
 import { Button, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
+import ManuBar from '../../../dashBoard/MenuBar/ManuBar';
 
 const ManageService = () => {
   const [services, setServices] = useState([]);
@@ -27,6 +28,7 @@ const ManageService = () => {
     };
   return (
     <Box>
+      <ManuBar />
       <Box>
       <Typography variant="h1" component="h2" sx={{fontWeight:'700', fontSize:'30px', lineHeight:'30px', textTransform:'uppercase', textAlign:'center' }}> BEST OFFERS </Typography>
       <Typography variant="subtitle1" gutterBottom component="div" sx={{fontWeight:'700', letterSpacing:'2px', fontFamily:'12px', marginBottom:'40px', textTransform:'uppercase', fontStyle:'italic', color:'#b63327', textAlign:'center'}}> CHECK OUT OUR BEST PROMOTION TOURS </Typography>

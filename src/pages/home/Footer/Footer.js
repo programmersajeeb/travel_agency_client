@@ -160,7 +160,7 @@ const Footer = () => {
                                 textAlign="left"
                                 marginBottom="20px"
                                 color="#9f7a49">
-                                Watches
+                                Travels
                             </Typography>
                             <ul
                                 style={{

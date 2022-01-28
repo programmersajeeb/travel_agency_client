@@ -1,7 +1,8 @@
-import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Navigation from '../../home/Navigation/Navigation';
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
@@ -26,7 +27,9 @@ const Register = () => {
         e.preventDefault();
     }
   return (
-    <Container>
+    <Box>
+        <Navigation />
+        <Container sx={{marginTop:'64px'}}>
             <Grid container="container" spacing={2}>
                 <Grid item="item" sx={{mt: 8}}xs={12}md={6}>
                     <Typography variant="body1" gutterBottom="gutterBottom">Register</Typography>
@@ -84,6 +87,7 @@ const Register = () => {
                 </Grid>
             </Grid>
         </Container>
+    </Box>
   );
 };
 
