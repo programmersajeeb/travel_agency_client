@@ -98,12 +98,12 @@ const Navigation = () => {
           </Typography>
           <Box className={navItemContainer}>
                <NavLink className={navItem} to="/"> <Button color="inherit">Home</Button> </NavLink>
-               <NavLink className={navItem} to="/adminPanel"> <Button color="inherit">Admin Panel</Button> </NavLink>
                {
             user?.email ?
                
                <Box sx={{display:'inline-block'}}>
                  <NavLink className={navItem} to="/addBlog"> <Button color="inherit">Add Blog</Button> </NavLink>
+                 <NavLink className={navItem} to="/adminPanel"> <Button color="inherit">Admin Panel</Button> </NavLink>
                <Button onClick={logout} color="inherit">Logout</Button>
                </Box>
                :
