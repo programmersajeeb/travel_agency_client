@@ -59,22 +59,35 @@ const Navigation = () => {
             <ListItemText> <Link className={mobileNavItem} to='/'>Home</Link> </ListItemText>
           </ListItem>
           <Divider />
-          <ListItem button>
-            <ListItemText> <Link className={mobileNavItem} to='/about'>About</Link> </ListItemText>
+          {
+            user?.email ?
+          <Box>
+            <ListItem button>
+            <ListItemText> <Link className={mobileNavItem} to='/adminPanel'>Dashboard</Link> </ListItemText>
           </ListItem>
           <Divider />
+          {
+                admin &&
           <ListItem button>
-            <ListItemText> <Link className={mobileNavItem} to='/services'>Services</Link> </ListItemText>
+            <ListItemText> <Link className={mobileNavItem} to='/menuBar'>Control Panel</Link> </ListItemText>
+          </ListItem>
+}
+          <Divider />
+
+          <ListItem button>
+            <ListItemText> <Button className={mobileNavItem} onClick={logout} color="inherit">Logout</Button> </ListItemText>
           </ListItem>
           <Divider />
-          <ListItem button>
-            <ListItemText> <Link className={mobileNavItem} to='/portfolio'>Portfolio</Link> </ListItemText>
+          </Box>
+          :
+          
+          <Box>
+            <ListItem button>
+            <ListItemText> <Link className={mobileNavItem} to='/login'>Login</Link> </ListItemText>
           </ListItem>
           <Divider />
-          <ListItem button>
-            <ListItemText> <Link className={mobileNavItem} to='/contact'>Contact</Link> </ListItemText>
-          </ListItem>
-          <Divider />
+          </Box>
+}
       </List>
     </Box>
   );
